@@ -23,6 +23,11 @@ with app.app_context():
 
 api = Api(app)
 
+
+@app.route("/",methods = ["GET"])
+def home():
+    return jsonify({"id": "Demo", "status":  "You are at homepage"}), 201
+
 @app.route("/postorder",methods = ["POST"])
 def Orderpost():
     data = request.get_json()
